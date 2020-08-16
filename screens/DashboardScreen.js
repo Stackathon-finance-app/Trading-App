@@ -39,7 +39,8 @@ export default class DashboardScreen extends Component {
 
 	render() {
 		return (
-			<View>
+			<View style= {{flex: 1, flexDirection: 'column'}}>
+				<View style={{flex: 3, borderWidth: 1, borderColor: 'green'}}>
 				<Text>Dashboard</Text>
 				<View>
 					<Text>Buying Power : {this.state.buying_power}</Text>
@@ -47,6 +48,23 @@ export default class DashboardScreen extends Component {
 					<Text>Long Market Value : {this.state.long_market_value}</Text>
 					<Text>Portfolio Value : {this.state.portfolio_value}</Text>
 				</View>
+				</View>
+
+				<View style={{flex: 2, borderWidth: 1, borderColor: 'red'}}>
+						<Text>Market</Text>
+
+						<View style= {{flex: 1, flexDirection: 'row'}}>
+							<View style={{flex: 1, borderWidth: 1, borderColor: 'red'}}><Text>DTA</Text></View>
+							<View style={{flex: 1, borderWidth: 1, borderColor: 'red'}}><Text>SPY</Text></View>
+							<View style={{flex: 1, borderWidth: 1, borderColor: 'red'}}><Text>QQQ</Text></View>
+							<View style={{flex: 1, borderWidth: 1, borderColor: 'red'}}><Text>IWM</Text></View>
+						</View>
+				</View>
+
+				<View style={{flex: 5, borderWidth: 1, borderColor: 'blue'}}>
+
+				</View>
+
 			</View>
 		);
 	}
