@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import alpacaApi from '../api/alpaca';
 
 export default class DashboardScreen extends Component {
 	static navigationOptions = {
@@ -10,6 +11,10 @@ export default class DashboardScreen extends Component {
 		super(props);
 
 		this.state = {};
+	}
+
+	componentDidMount() {
+		console.log('fetching data from alpaca api');
 	}
 
 	render() {
