@@ -30,21 +30,21 @@ DashboardStack.navigationOptions = {
 
 DashboardStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const HistoryStack = createStackNavigator(
 	{
-		Settings : SettingsScreen
+		History : HistoryScreen
 	},
 	config
 );
 
-SettingsStack.navigationOptions = {
-	tabBarLabel : 'Settings',
+HistoryStack.navigationOptions = {
+	tabBarLabel : 'Home',
 	tabBarIcon  : ({ focused }) => (
-		<TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+		<TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-pulse' : 'md-pulse'} />
 	)
 };
 
-SettingsStack.path = '';
+HistoryStack.path = '';
 
 const SearchStack = createStackNavigator(
 	{
@@ -62,27 +62,27 @@ SearchStack.navigationOptions = {
 
 SearchStack.path = '';
 
-const HistoryStack = createStackNavigator(
+const SettingsStack = createStackNavigator(
 	{
-		History : HistoryScreen
+		Settings : SettingsScreen
 	},
 	config
 );
 
-HistoryStack.navigationOptions = {
-	tabBarLabel : 'Home',
+SettingsStack.navigationOptions = {
+	tabBarLabel : 'Settings',
 	tabBarIcon  : ({ focused }) => (
-		<TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-pulse' : 'md-pulse'} />
+		<TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
 	)
 };
 
-HistoryStack.path = '';
+SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
 	DashboardStack,
+	HistoryScreen,
 	SearchStack,
-	SettingsStack,
-	HistoryScreen
+	SettingsStack
 });
 
 tabNavigator.path = '';
