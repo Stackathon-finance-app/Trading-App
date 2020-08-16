@@ -7,6 +7,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import DashboardScreen from '../screens/DashboardScreen';
 import SearchScreen from '../screens/SearchScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import HistoryScreen from '../screens/HistoryScreen';
 
 const config = Platform.select({
 	web     : { headerMode: 'screen' },
@@ -61,10 +62,27 @@ SearchStack.navigationOptions = {
 
 SearchStack.path = '';
 
+const HistoryStack = createStackNavigator(
+	{
+		History : HistoryScreen
+	},
+	config
+);
+
+HistoryStack.navigationOptions = {
+	tabBarLabel : 'Home',
+	tabBarIcon  : ({ focused }) => (
+		<TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-pulse' : 'md-pulse'} />
+	)
+};
+
+HistoryStack.path = '';
+
 const tabNavigator = createBottomTabNavigator({
 	DashboardStack,
 	SearchStack,
-	SettingsStack
+	SettingsStack,
+	HistoryScreen
 });
 
 tabNavigator.path = '';
