@@ -26,23 +26,21 @@ class HistoryScreen extends Component {
 	}
 
 	render() {
-		const history = this.state.transactions || []
+		const history = this.state.transactions || [];
 		console.log(history);
 		return (
 			<View>
-				{history.map(transaction => {
-					console.log('inside dis WAP', transaction);
-						return (
-						<View>
-						<Text>{transaction.symbol}</Text>
-						<Text>
-							{transaction.side} {transaction.qty} @ {transaction.price}
-						</Text>
-						<Text>{transaction.time}</Text>
+				{history.map((transaction) => {
+					return (
+						<View key={transaction.id}>
+							<Text>{transaction.symbol}</Text>
+							<Text>
+								{transaction.side} {transaction.qty} @ {transaction.price}
+							</Text>
+							<Text>{transaction.time}</Text>
 						</View>
-						)
+					);
 				})}
-
 			</View>
 		);
 	}
