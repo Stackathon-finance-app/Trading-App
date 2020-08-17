@@ -80,7 +80,7 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
 	DashboardStack,
-	HistoryScreen,
+	HistoryStack,
 	SearchStack,
 	SettingsStack
 });
