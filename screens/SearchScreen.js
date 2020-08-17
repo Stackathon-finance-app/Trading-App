@@ -22,16 +22,8 @@ class SearchScreen extends React.Component {
 			<SearchBar platform="ios" placeholder="Company Name..." onChangeText={this.updateCompany} value={company} />
 		);
 
-
-		console.log('this company', {company})
-		return (searchBar)
-
-		const test = (
-			<View>
-				<Text>Hi</Text>
-			</View>
-		);
-		return <View>{company === '' ? searchBar : test}</View>;
+		console.log('this company', { company });
+		return searchBar;
 
 	}
 }

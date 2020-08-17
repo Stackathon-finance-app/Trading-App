@@ -11,9 +11,7 @@ const polygonApi = (baseUrl = keys.POLYGON_URL) => {
 		apiKey : keys.ALPACA_API_KEY_ID
 	};
 
-	const getQuote = (symbol) => {
-		api.get(`v2/snapshot/locale/us/markets/stocks/tickers/${symbol}`, params);
-	};
+	const getQuote = (symbol) => api.get(`v2/snapshot/locale/us/markets/stocks/tickers/${symbol}`, params);
 
 	return { getQuote };
 };

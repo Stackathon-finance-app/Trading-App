@@ -22,13 +22,10 @@ export default class DashboardScreen extends Component {
 	}
 
 	componentDidMount() {
-		console.log('fetching data from alpaca api');
-
 		const alpaca = alpacaApi();
+		const polygon = polygonApi();
 
 		alpaca.getAccount().then((res) => {
-			console.log(res);
-
 			if (res.ok) {
 				this.setState({
 					buying_power      : res.data.buying_power,
@@ -40,13 +37,16 @@ export default class DashboardScreen extends Component {
 		});
 
 		alpaca.getPositions().then((res) => {
-			console.log('dis positions', res);
-
 			if (res.ok) {
 				this.setState({
 					positions : res.data
 				});
 			}
+		});
+
+		polygon.getQuote('SPY').then((res) => {
+			console.log('response from polygon');
+			console.log(res);
 		});
 	}
 
