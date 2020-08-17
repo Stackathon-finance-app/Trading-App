@@ -11,16 +11,20 @@ class SearchScreen extends React.Component {
 			company : ''
 		};
 	}
+
 	updateCompany = (company) => {
 		this.setState({ company });
 	};
 	render() {
+
 		const { company } = this.state;
 		const searchBar = (
 			<SearchBar platform="ios" placeholder="Company Name..." onChangeText={this.updateCompany} value={company} />
 		);
+
 		console.log('this company', { company });
 		return searchBar;
+
 	}
 }
 export default SearchScreen;
