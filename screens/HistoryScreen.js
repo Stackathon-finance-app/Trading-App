@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View, Text } from 'react-native';
 import alpacaApi from '../api/alpaca';
 
 class HistoryScreen extends Component {
@@ -26,19 +26,23 @@ class HistoryScreen extends Component {
 	}
 
 	render() {
-		console.log(this.state.transactions);
+		const history = this.state.transactions || []
+		console.log(history);
 		return (
 			<View>
-				<Text>Hello Activity Screen</Text>
-				{this.state.transactions.map((transaction) => {
-					<View>
+				{history.map(transaction => {
+					console.log('inside dis WAP', transaction);
+						return (
+						<View>
 						<Text>{transaction.symbol}</Text>
 						<Text>
 							{transaction.side} {transaction.qty} @ {transaction.price}
 						</Text>
 						<Text>{transaction.time}</Text>
-					</View>;
+						</View>
+						)
 				})}
+
 			</View>
 		);
 	}
