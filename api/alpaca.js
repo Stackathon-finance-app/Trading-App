@@ -15,9 +15,12 @@ const alpacaApi = (baseUrl = keys.ALPACA_URL) => {
 
 	const getPositions = () => api.get('v2/positions');
 
+	const getActivity = () => api.get('v2/account/activities');
+
 	return {
 		getAccount,
-		getPositions
+		getPositions,
+		getActivity
 	};
 };
 

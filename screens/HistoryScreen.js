@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import alpacaApi from '../api/alpaca';
 
-export default class HistoryScreen extends Component {
+class HistoryScreen extends Component {
 	static navigationOptions = {
 		title : 'Transaction History'
 	};
@@ -9,14 +10,38 @@ export default class HistoryScreen extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			transactions : []
+		};
+	}
+
+	componentDidMount() {
+		const api = alpacaApi();
+
+		api.getActivity().then((res) => {
+			this.setState({
+				transactions : res.data
+			});
+		});
 	}
 
 	render() {
+		console.log(this.state.transactions);
 		return (
 			<View>
-				<Text>Transaction History</Text>
+				<Text>Hello Activity Screen</Text>
+				{this.state.transactions.map((transaction) => {
+					<View>
+						<Text>{transaction.symbol}</Text>
+						<Text>
+							{transaction.side} {transaction.qty} @ {transaction.price}
+						</Text>
+						<Text>{transaction.time}</Text>
+					</View>;
+				})}
 			</View>
 		);
 	}
 }
+
+export default HistoryScreen;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, View, Text } from 'react-native';
 import alpacaApi from '../api/alpaca';
-import polygonApi from '../api/polygon';
 import { dashboardStyle } from '../styles/style';
 import { Ionicons } from '@expo/vector-icons';
 export default class DashboardScreen extends Component {
@@ -23,7 +22,6 @@ export default class DashboardScreen extends Component {
 
 	componentDidMount() {
 		const alpaca = alpacaApi();
-		const polygon = polygonApi();
 
 		alpaca.getAccount().then((res) => {
 			if (res.ok) {
@@ -43,15 +41,9 @@ export default class DashboardScreen extends Component {
 				});
 			}
 		});
-
-		polygon.getQuote('SPY').then((res) => {
-			console.log('response from polygon');
-			console.log(res);
-		});
 	}
 
 	renderRow = (item) => {
-		console.log('this is item', item.item);
 		return (
 			<View key={item.asset_id} style={dashboardStyle.position}>
 				<View style={dashboardStyle.positionsLeftBox}>
