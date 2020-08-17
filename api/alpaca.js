@@ -1,5 +1,4 @@
 import apisauce from 'apisauce';
-
 import keys from '../alpaca-api';
 
 const alpacaApi = (baseUrl = keys.BASE_URL) => {

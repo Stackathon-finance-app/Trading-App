@@ -23,5 +23,32 @@ export const dashboardStyle = StyleSheet.create({
   },
   rightBox: {
     flex: 1
+  },
+  position: {
+    flex: 1,
+    flexDirection: 'row',
+    margin: 5,
+    borderWidth: 1,
+    padding: 5,
+    borderRadius: 5
+  },
+  positionsLeftBox: {
+    flex: 4,
+  },
+  positionsRightBox: {
+    flex: 1
+  },
+  symbol: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'black'
+  },
+  subheading: {
+    color: 'grey'
+  },
+  price: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color:'green'
   }
 });
