@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 class SearchScreen extends React.Component {
 	static navigationOptions = {
@@ -8,14 +8,19 @@ class SearchScreen extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			company : ''
+		};
 	}
 
+	updateCompany = (companyName) => {
+		this.setState({ company: companyName });
+	};
+
 	render() {
+		const { company } = this.state;
 		return (
-			<View>
-				<Text>This is the search screen</Text>
-			</View>
+			<SearchBar platform="ios" placeholder="Company Name..." onChangeText={this.updateCompany} value={company} />
 		);
 	}
 }
