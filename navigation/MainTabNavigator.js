@@ -5,9 +5,9 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 import DashboardScreen from '../screens/DashboardScreen';
+import HistoryScreen from '../screens/HistoryScreen';
 import SearchScreen from '../screens/SearchScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import HistoryScreen from '../screens/HistoryScreen';
 
 const config = Platform.select({
 	web     : { headerMode: 'screen' },
@@ -38,7 +38,7 @@ const HistoryStack = createStackNavigator(
 );
 
 HistoryStack.navigationOptions = {
-	tabBarLabel : 'Home',
+	tabBarLabel : 'History',
 	tabBarIcon  : ({ focused }) => (
 		<TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-pulse' : 'md-pulse'} />
 	)
